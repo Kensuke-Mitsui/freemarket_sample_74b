@@ -1,28 +1,65 @@
-# README
+# freemarket DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|string|null: false|
+|nickname|string|null: false|
+|email|string|null: false, unique: true, index: true|
+|password|string|null: false|
+|family_name|string|null: false|
+|first_name|date|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|date|null: false|
+|birthday|date|null: false|
+|post_code|integer(7)|null: false|
+|prefectures|string|null: false|
+|city|string|null: false|
+|block|string|null: false|
+|building|string|
+|phone_number|integer|unique: true|
+### Association
+- belongs_to :items
 
-Things you may want to cover:
 
-- Ruby version
+## itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item|string|null: false|
+|user_id|references|null: false|
+|item_name|string|null: false|
+|item_content|string|null: false|
+|size|string|null: false|
+|status|string|null: false|
+|brand|string|null: false|
+### Association
+- belongs_to :users
+- has_many :images
+- has_many :items_categories
+- has_many :categories,  througn:  :items_categories
 
-- System dependencies
 
-- Configuration
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image_url|string|null: false|
+|item_id|reference|null: false, foreign_key: true|
+### Association
+- belongs_to :items
 
-- Database creation
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+### Association
+- has_many :items_categories
+- has_many :items,  through:  :posts_tags
 
-- Database initialization
-
-- How to run the test suite
-
-- Services (job queues, cache servers, search engines, etc.)
-
-- Deployment instructions
-
-- ...
-  大仁貴博試しにやってみた
-  テスト 2
-  テスト　藤井
-  テスト 木賀
+## items_categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|category_id|reference|null: false, foreign_key:true|
+|item_id|reference|null: false, foreign_key: true|
+### Association
+- belongs_to :items
+- belongs_to :categories
