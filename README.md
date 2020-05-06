@@ -14,6 +14,7 @@
 ### Association
 - has_many :comments
 - has_many :items
+- has_many :orders
 - belongs_to :address
 - belong_to :credit_card
 
@@ -41,6 +42,15 @@
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
+
+## ordersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|buyer_user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :item
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -71,6 +81,7 @@
 ### Association
 - has_many :comments
 - has_many :images
+- has_many :orders
 - belongs_to :user
 - belongs_to :categorie
 - belongs_to :size
