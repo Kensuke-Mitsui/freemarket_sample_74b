@@ -14,7 +14,7 @@
 |post_code|integer(7)|null: false|
 |phone_number|integer|unique: true|
 ### Association
-- belongs_to :item
+- has_many :items
 - has_many :address
 
 ## addressテーブル
@@ -31,12 +31,11 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item|string|null: false|
 |user_id|references|null: false|
 |name|string|null: false|
 |content|string|null: false|
 |size|string|null: false|
-|status|string|null: false|
+|status|integer|null: false|enum|
 |brand|string|null: false|
 ### Association
 - belongs_to :user
