@@ -11,10 +11,9 @@
 |family_name_kana|string|null: false|
 |first_name_kana|date|null: false|
 |birthday|date|null: false|
-|post_code|integer(7)|null: false|
 ### Association
 - has_many :comments
-- has_many :items,  through:  :comments
+- has_many :items
 - belongs_to :address
 - belong_to :credit_card
 
@@ -33,6 +32,7 @@
 ## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
+|post_code|integer(7)|null: false|
 |prefectures|string|null: false|
 |city|string|null: false|
 |block|string|null: false|
@@ -41,6 +41,16 @@
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
+
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false|
+|item_id|references|null: false|
+|text|text|null: false|
+### Association
+- belongs_to :user
+- belongs_to :item
 
 
 ## itemsテーブル
@@ -60,8 +70,8 @@
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - has_many :comments
-- has_many :users,  through:  :comments
 - has_many :images
+- belongs_to :user
 - belongs_to :categorie
 - belongs_to :size
 - belongs_to :bland
@@ -70,15 +80,6 @@
 - belongs_to :region
 - belongs_to :preparation_day
 
-## commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false|
-|item_id|references|null: false|
-|text|text|null: false|
-### Association
-- belongs_to :user
-- belongs_to :item
 
 
 ## imagesテーブル
