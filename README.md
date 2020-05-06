@@ -15,8 +15,8 @@
 ### Association
 - has_many :comments
 - has_many :items,  through:  :comments
-- belongs_to  :address
-- belong_to  :credit_card
+- belongs_to :address
+- belong_to :credit_card
 
 
 ## credit_cardsテーブル
@@ -136,4 +136,4 @@
 |------|----|-------|
 |preparation_day|string|null: false|
 ### Association
-- has_many  :items
+- has_many :items
