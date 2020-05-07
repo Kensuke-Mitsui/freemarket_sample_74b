@@ -12,11 +12,11 @@
 |first_name_kana|date|null: false|
 |birthday|date|null: false|
 ### Association
-- has_many :comments
+- has_many :comments dependent: :destroy
 - has_many :items
-- has_many :orders
-- belongs_to :address
-- belong_to :credit_card
+- has_many :orders dependent: :destroy
+- belongs_to :address 
+- belong_to :credit_card 
 
 
 ## credit_cardsテーブル
@@ -79,9 +79,9 @@
 |price|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
 ### Association
-- has_many :comments
-- has_many :images
-- has_many :orders
+- has_many :comments dependent: :destroy
+- has_many :images dependent: :destroy
+- has_many :orders dependent: :destroy
 - belongs_to :user
 - belongs_to :categorie
 - belongs_to :size
