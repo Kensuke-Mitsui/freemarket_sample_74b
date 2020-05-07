@@ -15,16 +15,16 @@
 - has_many :comments dependent: :destroy
 - has_many :items　dependent: :destroy
 - has_many :orders dependent: :destroy
-- belongs_to :address 
-- belong_to :credit_card 
+- belongs_to :address dependent: :destroy
+- belong_to :credit_card dependent: :destroy
 
 
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |card_number|integer|null: false|
-|expiretion_year|integer|null: false|
-|expiretion_month|integer|null: false|
+|expiration_year|integer|null: false|
+|expiration_month|integer|null: false|
 |security|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
 ### Association
@@ -75,21 +75,21 @@
 |item_condition_id|references|null: false, foreign_key: true|
 |postage_player_id|references|null: false, foreign_key: true|
 |region_id|references|null: false, foreign_key: true|
-|prparation_day_id|references|null: false, foreign_key: true|
+|preparation_day_id|references|null: false, foreign_key: true|
 |price|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - has_many :comments dependent: :destroy
 - has_many :images dependent: :destroy
 - has_many :orders dependent: :destroy
-- belongs_to :user
-- belongs_to :categorie
-- belongs_to :size
-- belongs_to :bland
-- belongs_to :item_condition
-- belongs_to :postage_player
-- belongs_to :region
-- belongs_to :preparation_day
+- belongs_to :user　dependent: :destroy
+- belongs_to :categoryy　dependent: :destroy
+- belongs_to :size　dependent: :destroy
+- belongs_to :bland　dependent: :destroy
+- belongs_to :item_condition　dependent: :destroy
+- belongs_to :postage_player　dependent: :destroy
+- belongs_to :region　dependent: :destroy
+- belongs_to :preparation_day　dependent: :destroy
 
 
 
@@ -115,7 +115,7 @@
 ### Association
 - has_many :items
 
-## blandsテーブル
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
