@@ -13,7 +13,7 @@
 |birthday|date|null: false|
 ### Association
 - has_many :comments dependent: :destroy
-- has_many :items
+- has_many :items　dependent: :destroy
 - has_many :orders dependent: :destroy
 - belongs_to :address 
 - belong_to :credit_card 
