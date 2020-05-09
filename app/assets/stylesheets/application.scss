@@ -1,3 +1,8 @@
+/* 
+ * require_tree .
+ * require_self
+ */
+
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "color";
@@ -7,5 +12,5 @@
 @import "items/index";
 @import "items/new";
 @import "items/show";
-@import "orders/index";
-@import "orders/index";
+// @import "orders/index";
+// @import "orders/index";
