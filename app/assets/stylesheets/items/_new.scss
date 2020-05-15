@@ -145,19 +145,14 @@
       border: 0px solid #000;
     }
     .link-blue {
-      display: block;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
       color: #0095ee;
       text-decoration: none;
     }
     &__caution {
-      margin-top: 32px;
       font-size: 12px;
-    }
-    &__create{
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
     }
   }
 }
